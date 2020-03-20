@@ -1,0 +1,9 @@
+<div style="margin: 2%; padding: 10px; border: 2px solid lightgray;">
+    <p>child2b works!</p>
+    <button (click)="onAdd()">Add</button>
+    <ul *ngFor="let item of (items$ | async).items">
+        <li>
+            {{ item.name }}
+        </li>
+    </ul>
+</div>

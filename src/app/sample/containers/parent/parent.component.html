@@ -1,0 +1,17 @@
+<button routerLink="/usersInfo">Users Info</button>
+<button routerLink="/postsInfo">Posts Info</button>
+<button routerLink="/sample">Sample</button>
+<p>parent works!</p>
+<ng-container *ngIf="items$ | async as items">
+    <ul *ngFor="let item of items.items">
+        <li>
+            {{ item.name }}
+        </li>
+    </ul>
+    <div style="float: left; width: 50%">
+        <app-child1 [items]="items" (add)="addItem($event)" (remove)="removeItem($event)"></app-child1>
+    </div>
+    <div style="float: right; width: 50%">
+        <app-child2 [items]="items" [form]="sampleForm" (submitCustom)="submitCustom()"></app-child2>
+    </div>
+</ng-container>

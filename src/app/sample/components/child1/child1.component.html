@@ -1,0 +1,11 @@
+<div style="margin: 1%; padding: 10px; border: 2px solid black;">
+    <p>child1 works!</p>
+    <button (click)="onAdd()">Add</button>
+    <br>
+    <ul *ngFor="let item of items.items; let i = index">
+        <li>
+            {{ item.name }}: {{ item.toppings | json }}
+            <button (click)="onRemove(i)">Remove</button>
+        </li>
+    </ul>
+</div>

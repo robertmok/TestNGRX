@@ -1,0 +1,27 @@
+<p>post works!</p>
+<button (click)="loadPosts.emit()">Load Posts</button>
+<ng-container *ngIf="posts; else loadingPosts">
+    <ul>
+        <li *ngFor="let post of posts">
+            User: {{ post.userId }} <br> 
+            Title: {{ post.title }} <br>
+            Body: <br> 
+            {{ post.body }}
+            <br>
+            <button (click)="viewComments.emit(post.id)"> View Comments </button>
+            <br><br>
+        </li>
+    </ul>
+</ng-container>
+
+<ng-template #loadingPosts>
+    <ng-container *ngIf="error$ as errorMessage; else loading">
+        <h2 style="color: red;">
+            {{ errorMessage }}
+        </h2>
+    </ng-container>
+      
+    <ng-template #loading>
+        <h2 style="color: blue;">Loading Posts ...</h2>
+    </ng-template>
+</ng-template>

@@ -1,0 +1,5 @@
+<button routerLink="/usersInfo">Users Info</button>
+<button routerLink="/postsInfo">Posts Info</button>
+<button routerLink="/sample">Sample</button>
+<p>post-container works!</p>
+<app-post [posts]="posts$ | async" [error$]="error$ | async" (loadPosts)="loadPosts()" (viewComments)="viewComments($event)"></app-post>
